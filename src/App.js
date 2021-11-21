@@ -1,12 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
+import Header from './header/Header'
 
 function App() {
   const { data, isLoading } = useFeaturedBanners();
   console.log(data, isLoading);
 
   return (
+    <div>
+    <Header />
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -22,6 +25,7 @@ function App() {
           Learn React
         </a>
       </header>
+    </div>
     </div>
   );
 }

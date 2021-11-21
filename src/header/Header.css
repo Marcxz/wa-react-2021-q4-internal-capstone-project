@@ -1,0 +1,65 @@
+.container {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    vertical-align: middle;
+    width: 100%;
+    height: 9%;
+    background-color: #5599bb;
+}
+
+
+img {
+    width: 200px;
+    height: 80px;
+}
+.searchInput {
+    margin: auto;
+    display: block;
+    width: 75%;
+    height: 35px;
+}
+.btn {
+  margin: auto;
+  display: block;
+  color: #000000;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 40px;
+  border: 2px solid #000000;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  position: relative;
+  z-index: 0;
+}
+.btn,
+.btn:after {
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
+}
+.btn:hover {
+  color: #fff;
+}
+.btn:after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  bottom: 20%;
+  right: 20%;
+  background-color: transparent;
+  z-index: -1;
+}
+.btn:hover:after {
+  background-color: red;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
