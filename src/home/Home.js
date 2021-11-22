@@ -1,8 +1,8 @@
 import "./Home.css"
 
-import PropTypes from "prop-types"
 import React from "react"
-import { Slider } from "./slider/slider";
+import { Banner } from "./featuredBanners/Banner";
+import { Category } from "./productCategories/Category"
 export default class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -11,7 +11,8 @@ export default class Home extends React.Component {
     render() {
         return (
             <div className="containerHome">
-                <Slider />
+                <Banner />
+                <Category />
             </div>
         )
     }
