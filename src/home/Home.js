@@ -1,13 +1,19 @@
 import "./Home.css"
 
+import PropTypes from "prop-types"
 import React from "react"
+import { Slider } from "./slider/slider";
+export default class Home extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
-const Home = (props) => {
-    return (
-        <div className="containerHome">
-            <h1>Home</h1>
-        </div>
-    )
+    render() {
+        return (
+            <div className="containerHome">
+                <Slider />
+            </div>
+        )
+    }
 }
 
-export default Home;

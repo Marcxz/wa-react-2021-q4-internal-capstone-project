@@ -42,23 +42,3 @@ img {
   -o-transition: all .25s ease;
   transition: all .25s ease;
 }
-.btn:hover {
-  color: #fff;
-}
-.btn:after {
-  content: "";
-  position: absolute;
-  top: 20%;
-  left: 20%;
-  bottom: 20%;
-  right: 20%;
-  background-color: transparent;
-  z-index: -1;
-}
-.btn:hover:after {
-  background-color: red;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}

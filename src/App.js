@@ -7,7 +7,7 @@ import Home from './home/Home';
 
 function App() {
   const { data, isLoading } = useFeaturedBanners();
-  console.log(data, isLoading);
+  // console.log(data, isLoading);
 
   return (
     
