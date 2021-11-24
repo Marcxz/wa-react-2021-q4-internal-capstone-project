@@ -2,7 +2,10 @@ import React from "react";
 import "./Category.css"
 import * as productCategories from "../../mocks/es-mx/product-categories.json"
 
-export default function Category() {
+export default function Category({setCategory}) {
+    const handleCategory = (category) => {
+        setCategory(category)
+    }
 
     return (
         <div className="containerGridCategory">
@@ -11,7 +14,7 @@ export default function Category() {
             {productCategories && productCategories.results.map( (category, index) => 
                 <li key={category.id} className="containerItemCategory">
                     <span>{category.data.name}</span>
-                    <img title={category.data.name} src={category.data.main_image.url} alt={category.data.main_image.alt} />
+                    <img onClick={() => {handleCategory(category.data.name)}} title={category.data.name} src={category.data.main_image.url} alt={category.data.main_image.alt} />
                 </li>
             )}
             </ul>

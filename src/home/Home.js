@@ -4,18 +4,20 @@ import React from "react"
 import { Banner } from "./featuredBanners/Banner";
 import Category  from "./productCategories/Category"
 import Product from "./products/Product";
+import { useState } from "react/cjs/react.development";
 
 function Home({isProduct, setIsProduct}) {
 
     const handleProduct = () => {
         setIsProduct(true)
     }
+    const [category, setCategory] = useState("muebles");
 
     if (isProduct) {
         return (
                 <div className="containerCategoryProducts">
-                    <Category />
-                    <Product />
+                    <Category setCategory={setCategory} />
+                    <Product category={category} setCategory={setCategory} />
                 </div>
             )
         }
