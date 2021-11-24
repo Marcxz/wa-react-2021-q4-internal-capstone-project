@@ -21,7 +21,7 @@ export class Banner extends React.Component {
                 </ul>
                 <ul class="menu">
                     {featuredBanners && featuredBanners.results.map((feature, index) => 
-                        <li>
+                        <li key={feature.id}>
                             <a href={`#${feature.id}`}>{index+1}</a>
                         </li>
                     )}
