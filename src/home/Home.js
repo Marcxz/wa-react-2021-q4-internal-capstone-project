@@ -1,15 +1,14 @@
 import "./Home.css"
 
-import React, { useState } from "react"
+import React from "react"
 import { Banner } from "./featuredBanners/Banner";
 import { Category } from "./productCategories/Category"
 import { Product } from "./products/Product";
 
-function Home() {
-    const [isProduct, setProduct] = useState(false)
+function Home({isProduct, setIsProduct}) {
 
     const handleProduct = () => {
-        setProduct(true)
+        setIsProduct(true)
     }
 
     if (isProduct) {
