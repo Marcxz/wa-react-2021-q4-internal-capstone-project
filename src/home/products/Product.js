@@ -17,6 +17,12 @@ export default function Product({category, setCategory}) {
                 </li>                    
             )}
             </ul>
+
+            <div className="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#">1</a>
+                <a href="#">&raquo;</a>
+            </div>
         </div>
         )
 }
