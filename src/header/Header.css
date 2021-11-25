@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    vertical-align: middle;
+    width: 100%;
+    height: 9%;
+    background-color: #5599bb;
+}
+
+
+img {
+    width: 200px;
+    height: 80px;
+    cursor: pointer;
+}
+.searchInput {
+    margin: auto;
+    display: block;
+    width: 75%;
+    height: 35px;
+}
+.btn {
+  margin: auto;
+  display: block;
+  color: #000000;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 40px;
+  border: 2px solid #000000;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  position: relative;
+  z-index: 0;
+}
+.btn,
+.btn:after {
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
+}

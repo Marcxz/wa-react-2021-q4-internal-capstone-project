@@ -1,27 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
 import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
+import Header from './header/Header'
+import { Footer } from './footer/Footer'
+import Home from './home/Home';
+import { useState } from 'react/cjs/react.development';
 
 function App() {
-  const { data, isLoading } = useFeaturedBanners();
-  console.log(data, isLoading);
+  useFeaturedBanners();
+  const [isProduct, setIsProduct] = useState(false)
 
   return (
+    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header setIsProduct={setIsProduct} />
+      <Home isProduct={isProduct} setIsProduct={setIsProduct} />
+      <Footer />
     </div>
   );
 }
