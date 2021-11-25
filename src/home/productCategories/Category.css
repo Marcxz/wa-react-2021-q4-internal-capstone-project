@@ -14,16 +14,16 @@
   text-align: center;
 }
 
-.containerItemCategory:hover {
+li:hover {
   box-shadow: 0 8px 16px 0 white(0,0,0,0.2);
 }
 
-.containerItemCategory img {
+.categoryImage {
   width: 95%;
   height: 200px;
 }
 
-.containerItemCategory span {  
+.categoryName {  
   color: white;
   font-weight: bold;
   font-size: 17px;

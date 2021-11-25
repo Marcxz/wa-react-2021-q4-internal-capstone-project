@@ -11,13 +11,13 @@ function Home({isProduct, setIsProduct}) {
     const handleProduct = () => {
         setIsProduct(true)
     }
-    const [category, setCategory] = useState("muebles");
+    const [arrCategory, setCategory] = useState([]);
 
     if (isProduct) {
         return (
                 <div className="containerCategoryProducts">
                     <Category setCategory={setCategory} />
-                    <Product category={category} setCategory={setCategory} />
+                    <Product arrCategory={arrCategory} setCategory={setCategory} />
                 </div>
             )
         }
