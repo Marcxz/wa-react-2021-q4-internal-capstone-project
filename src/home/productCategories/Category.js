@@ -20,19 +20,25 @@ const Selected = styled.div`
 export default function Category({setCategory}) {
     const [productCategories, setProductCategories] = useState([])
     let arrCategory = [];
-    const handleAddCategory = (category) => {
+    const fillCategories = () => {
+        arrCategory = []
+        productCategories.results.map((c, i) => {
+            if(c.selected) {
+                arrCategory.push(c.data.name.toLowerCase())
+            }
+        })
+    }
+    const handleAddCategory = (category) => {        
         category.selected = true;
+        fillCategories()
         setProductCategories(productCategories)
-        arrCategory.push(category.data.name.toLowerCase())
         setCategory(arrCategory)
+
     }
 
     const handleRemoveCategory = (category) => {
         category.selected = false;
-        const idx = arrCategory.includes(category.data.name.toLowerCase())
-        if (idx > -1) {
-            arrCategory.splice(idx, 1)
-        }
+        fillCategories()
         setProductCategories(productCategories)
         setCategory(arrCategory);
     }
