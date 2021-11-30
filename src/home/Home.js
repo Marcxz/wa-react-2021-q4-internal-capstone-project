@@ -6,6 +6,7 @@ import Category  from "./productCategories/Category"
 import Product from "./products/Product";
 import { useState } from "react/cjs/react.development";
 import {Route, Routes} from 'react-router-dom'
+import ProductDetail from "./productDetail/ProductDetail"
 
 function Home() {
 
@@ -15,6 +16,7 @@ function Home() {
         <Routes>
             <Route path={"/"} element={<Banner />} />
             <Route path={"/home"} element={<Banner />} />
+            <Route exact path={"/productDetail"} element={<ProductDetail />} />
             <Route exact path='/products' element={<GalleryProduct arrCategory={arrCategory} setCategory={setCategory} />} />
         </Routes>
     )
