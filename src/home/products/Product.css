@@ -11,6 +11,7 @@
      width: 40%;
      height: 200px;
      text-align: center;
+     margin-top: 15px;
    }
    
    .containerItem:hover {
@@ -39,20 +40,3 @@
      margin-right: 1%;
    }
 
-   .pagination {
-    display: inline-block;
-  }
-  
-  .pagination a {
-    color: white;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-  }
-  
-  .pagination a.active {
-    background-color: #5599bb;
-    color: white;
-  }
-  
-  .pagination a:hover:not(.active) {background-color: #ddd;}
