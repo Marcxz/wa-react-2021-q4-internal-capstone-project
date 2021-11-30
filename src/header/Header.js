@@ -1,18 +1,16 @@
 import "./Header.css"
 
 import React from 'react';
+import { Link } from "react-router-dom"
 
-export default function Header({setIsProduct}) {
-    
-    const handleClickHeader = () => {
-        setIsProduct(false)
-    }
-
+export default function Header() {
     return (
-        <div className="container">
-            <img alt="logo_image" onClick={handleClickHeader} src="assets/logo.png" /> 
-            <input id="criterio" disabled={true} className="searchInput" placeholder="Teclee los elementos a buscar" type="text" />
-            <button className="btn" disabled={true}>Buscar Elementos</button>
-        </div>
+            <div className="container">
+                <Link to="/home">
+                    <img alt="logo_image" src="assets/logo.png" /> 
+                </Link>
+                <input id="criterio" disabled={true} className="searchInput" placeholder="Teclee los elementos a buscar" type="text" />
+                <button className="btn" disabled={true}>Buscar Elementos</button>
+            </div>
     )
 }

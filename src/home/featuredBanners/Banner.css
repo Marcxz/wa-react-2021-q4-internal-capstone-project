@@ -1,4 +1,13 @@
 
+.containerHome {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #282c34;
+  min-height: 85vh;
+  height: 80%;
+}
+
 #slider{
     font-family: sans-serif;
     margin: auto;

@@ -35,7 +35,7 @@ export default function Category({setCategory}) {
         setCategory(arrCategory)
 
     }
-
+    
     const handleRemoveCategory = (category) => {
         category.selected = false;
         fillCategories()
