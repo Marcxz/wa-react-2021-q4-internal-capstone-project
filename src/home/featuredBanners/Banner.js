@@ -26,11 +26,9 @@ export class Banner extends React.Component {
                         )}
                     </ul>
                 </div>
-                <Link to="/productDetail">
-                    <button className="btn">View Product Detail</button>
-                </Link>
+                
                 <Link to="/products">
-                    <button className="btn">View All Products</button>
+                    <button className="btn">Ver todos los productos</button>
                 </Link>
             </div>
         </React.Fragment>    

@@ -1,8 +1,12 @@
-import React, { useState } from "react";
 import "./Product.css"
+
+import React, { useState } from "react";
+import { Link } from "react-router-dom"
+
 import Pagination from '../pagnation/Pagination'
 import * as featuredProducts from "../../mocks/es-mx/products.json"
 import * as productCategories from "../../mocks/es-mx/product-categories.json"
+
 export default function Product({arrCategory, setCategory}) {
 
     const [products, setProducts] = useState(featuredProducts)
@@ -20,8 +24,8 @@ export default function Product({arrCategory, setCategory}) {
     return (
         <div className="containerGrid">
             <div>
-                <h1>Products:</h1> 
-                <button className="btn" onClick={() => {ViewAllProducts()}}>View All Products</button>
+                <h1>Productos:</h1> 
+                <button className="btn" onClick={() => {ViewAllProducts()}}>Ver todos los productos</button>
             </div>
             <ul className="grid">
             {featuredProducts.results && featuredProducts.results.filter(product => arrCategory.includes(product.data.category.slug.toLowerCase())).map( (product, index) => 
@@ -30,8 +34,12 @@ export default function Product({arrCategory, setCategory}) {
                     <span>{product.data.name}</span>
                     <span>{product.data.category.slug}</span>
                     <span>{`$ ${product.data.price}`}</span>
-                    <button>View Details</button>
-                    <button>Add to Car</button>
+                    <span>
+                        <Link to={`/productDetail/${product.id}`}>
+                            <button>Ver detalle del producto</button>
+                        </Link>
+                    </span>
+                    <button>Agregar al carrito</button>
                 </li>                    
             )}
             </ul>

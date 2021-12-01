@@ -16,7 +16,7 @@ function Home() {
         <Routes>
             <Route path={"/"} element={<Banner />} />
             <Route path={"/home"} element={<Banner />} />
-            <Route exact path={"/productDetail"} element={<ProductDetail />} />
+            <Route exact path={"/productDetail/:id"} element={<ProductDetail />} />
             <Route exact path='/products' element={<GalleryProduct arrCategory={arrCategory} setCategory={setCategory} />} />
         </Routes>
     )

@@ -56,7 +56,7 @@ export default function Category({setCategory}) {
     })
     return (
         <div className="containerGridCategory">
-            <h1>Categories</h1>
+            <h1>Categorias</h1>
             <ul className="gridCategory">
             {productCategories && productCategories.results && productCategories.results.map( (category, index) => 
                 <CategoryContainer key={category.id}>
