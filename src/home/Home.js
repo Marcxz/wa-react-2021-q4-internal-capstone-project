@@ -7,7 +7,7 @@ import Product from "./products/Product";
 import { useState } from "react/cjs/react.development";
 import {Route, Routes} from 'react-router-dom'
 import ProductDetail from "./productDetail/ProductDetail"
-
+import SearchProduct from "./searchProduct/SearchProduct";
 function Home() {
 
     const [arrCategory, setCategory] = useState([]);
@@ -18,6 +18,7 @@ function Home() {
             <Route path={"/home"} element={<Banner />} />
             <Route exact path={"/productDetail/:id"} element={<ProductDetail />} />
             <Route exact path='/products' element={<GalleryProduct arrCategory={arrCategory} setCategory={setCategory} />} />
+            <Route exact path='/search' element={<SearchProduct />} />
         </Routes>
     )
 }
