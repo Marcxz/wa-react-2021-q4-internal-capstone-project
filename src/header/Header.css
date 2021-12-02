@@ -14,15 +14,20 @@ img {
     height: 80px;
     cursor: pointer;
 }
-.searchInput {
-    margin: auto;
-    display: block;
-    width: 75%;
-    height: 35px;
-}
-.btn {
+
+form {
+  width: 90%;
   margin: auto;
   display: block;
+}
+
+.searchInput {  
+    width: 80%;
+    height: 35px;
+}
+
+.btnSearch {
+  margin-left: 20px;
   color: #000000;
   height: 40px;
   line-height: 40px;
@@ -35,8 +40,8 @@ img {
   position: relative;
   z-index: 0;
 }
-.btn,
-.btn:after {
+.btnSearch,
+.btnSearch:after {
   -webkit-transition: all .25s ease;
   -moz-transition: all .25s ease;
   -ms-transition: all .25s ease;
