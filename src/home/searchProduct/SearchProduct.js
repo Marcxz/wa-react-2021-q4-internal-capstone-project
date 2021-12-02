@@ -4,18 +4,20 @@ import * as featuredProducts from "../../mocks/es-mx/products.json"
 
 function SearchProduct() {
     const [criterio, setCriterio] = useState("")
-    const [products, setProducts] = useState(featuredProducts.results) 
-    const [cantidad, setCantidad] = useState(1)
-
+    const [products, setProducts] = useState(featuredProducts.results)     
+    
     const queryProducts = () => {
+            const search = window.location.search;
+            const params = new URLSearchParams(search);
             // here we will filter the products
-            if (criterio === "") {
+            if (criterio === "" || params.get('q') !== criterio) {    
+                setCriterio(params.get('q'))            
                 setProducts(featuredProducts.results)
-                setCriterio("Ya busque")
             }
     }
-    
+    console.log(criterio)
     useEffect(() => {
+        console.log("useeffect")
         queryProducts()
     })
     return (
