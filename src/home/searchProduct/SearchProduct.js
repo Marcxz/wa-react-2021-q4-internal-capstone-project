@@ -13,11 +13,10 @@ function SearchProduct() {
             if ((criterio === "" || params.get('q') !== criterio) && params.get('q').length > 0) {    
                 setCriterio(params.get('q'))
                 let features = []
-                featuredProducts.results.map((p) => {
-                    if (p.data.name.toLowerCase().indexOf(params.get('q').toLowerCase()) >= 0) {
-                        features.push(p)
-                    }
-                })
+                featuredProducts.results.map((p) => 
+                    (p.data.name.toLowerCase().indexOf(params.get('q').toLowerCase()) >= 0) ?
+                        features.push(p) : null
+                )
                 setProducts(features)
             }
     }

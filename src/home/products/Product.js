@@ -1,6 +1,6 @@
 import "./Product.css"
 
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom"
 
 import Pagination from '../pagnation/Pagination'
@@ -8,16 +8,15 @@ import * as featuredProducts from "../../mocks/es-mx/products.json"
 import * as productCategories from "../../mocks/es-mx/product-categories.json"
 
 export default function Product({arrCategory, setCategory}) {
-
-    const [products, setProducts] = useState(featuredProducts)
     
     const ViewAllProducts = () => {
         if(productCategories.results && productCategories.results.length >= 0) {
             let categories = [];
-            productCategories.results.map((category) => {
+            productCategories.results.map((category) => 
                 categories.push(category.data.name.toLowerCase())
-            })
+            )
             setCategory(categories)
+
         }
     }
 

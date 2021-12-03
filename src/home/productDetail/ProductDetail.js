@@ -30,27 +30,24 @@ function ProductDetail() {
         else {
             setCantidad(c);
         }
-        console.log(featuredProducts.results[0])
         return null;
     }
 
     const handleImage = (image) => {
         setDisplayImage({
-            url: image.image.url,
-            alt: image.image.alt,
+            url: image.url,
+            alt: image.alt,
         })
     }
-    
+   
     handleProduct()
-
+    
     useEffect(() => {
         if(displayImage.url === "" && product) {
-            setDisplayImage({
-                url: product.data.mainimage.url,
-                alt: product.data.mainimage.alt,
-            })
+          handleImage(product.data.mainimage)
         }
     })
+    
     if (product) {
     return (
         <>
@@ -67,7 +64,7 @@ function ProductDetail() {
                         <ul className="gridProductDetail">
                             {product.data.images.map((image, index) =>      
                                 <li key={image.id} className="containerItemProductDetail">
-                                    <img src={image.image.url} alt={image.image.alt} title={image.image.title} onClick={() => handleImage(image)} />
+                                    <img src={image.image.url} alt={image.image.alt} title={image.image.title} onClick={() => handleImage(image.image)} />
                                 </li>                    
                             )}
                         </ul>
@@ -128,7 +125,7 @@ function ProductDetail() {
                       </thead>
                       <tbody>
                         {product.data.specs.map((spec, index) => 
-                          <tr>
+                          <tr key={index}>
                               <td>{spec.spec_name}</td>
                               <td>{spec.spec_value}</td>
                           </tr>

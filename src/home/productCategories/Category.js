@@ -26,6 +26,7 @@ export default function Category({setCategory}) {
             if(c.selected) {
                 arrCategory.push(c.data.name.toLowerCase())
             }
+            return null;
         })
     }
     const handleAddCategory = (category) => {        

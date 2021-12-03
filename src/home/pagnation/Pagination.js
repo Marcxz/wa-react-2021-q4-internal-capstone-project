@@ -4,9 +4,9 @@ import { React } from 'react'
 function Pagination(products) {
     return (
         <div className="pagination">
-            <a href="#">&laquo;</a>
-            <a href="#">1</a>
-            <a href="#">&raquo;</a> 
+            <a href="/home">&laquo;</a>
+            <a href="/home">1</a>
+            <a href="/home">&raquo;</a> 
         </div>
     )
 }
