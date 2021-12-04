@@ -1,7 +1,7 @@
 import "./Home.css"
 
 import React from "react"
-import { Banner } from "./featuredBanners/Banner";
+import Banner from "./featuredBanners/Banner";
 import Category  from "./productCategories/Category"
 import Product from "./products/Product";
 import { useState } from "react/cjs/react.development";
@@ -14,8 +14,8 @@ function Home() {
     
     return (
         <Routes>
-            <Route path={"/"} element={<Banner />} />
-            <Route path={"/home"} element={<Banner />} />
+            <Route path={"/"} element={<Banner arrCategory={arrCategory} setCategory={setCategory}/>} />
+            <Route path={"/home"} element={<Banner arrCategory={arrCategory} setCategory={setCategory} />} />
             <Route exact path={"/productDetail/:id"} element={<ProductDetail />} />
             <Route exact path='/products' element={<GalleryProduct arrCategory={arrCategory} setCategory={setCategory} />} />
             <Route exact path='/search' element={<SearchProduct />} />

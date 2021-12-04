@@ -19,7 +19,6 @@ export default function Product({arrCategory, setCategory}) {
 
         }
     }
-
     return (
         <div className="containerGrid">
             <div>

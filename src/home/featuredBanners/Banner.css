@@ -9,13 +9,13 @@
 }
 
 #slider{
+    margin-top: 50px;
     font-family: sans-serif;
-    margin: auto;
+    align-self: center;
     background-color: #282c34;
     max-width: 900px;
     border-color: white;
     width: 100%;
-    padding: 30px;
     box-sizing: border-box;
   }
   
@@ -38,7 +38,6 @@
     background-color: #282c34;
     padding: 10px;
     left: 50%;
-    top: 100px;
     transform: translate(-50%, -50%);
   }
   

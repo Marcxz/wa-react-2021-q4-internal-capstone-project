@@ -4,17 +4,28 @@ import styled from '@emotion/styled'
 
 const CategoryContainer = styled.li `
     width: 100%;
-    height: 200px;
+    height: 240px;
     text-align: center;
 `;
 const UnSelected = styled.div`
     transition: 0.3s;
-    background-color: #5599bb;
+    border-style: solid;
+    border-width: thin;
+    border-color: white;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: #282c34;
+    
 `;
 
 const Selected = styled.div`
     transition: 0.3s;
-    background-color: blue;
+    border-style: solid;
+    border-width: thin;
+    border-color: white;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: #5599bb;
 `;
 
 export default function Category({setCategory}) {
