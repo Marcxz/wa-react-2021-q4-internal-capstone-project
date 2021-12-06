@@ -1,8 +1,7 @@
 import "./ProductDetail.css"
 
-import { React } from "react"
+import React, { useEffect, useState } from "react"
 import * as featuredProducts from "../../mocks/es-mx/products.json"
-import { useEffect, useState } from "react/cjs/react.development"
 import { useParams, Link } from "react-router-dom";
 
 function ProductDetail() {

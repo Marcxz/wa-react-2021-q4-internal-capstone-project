@@ -16,7 +16,7 @@ img {
 }
 
 form {
-  width: 90%;
+  width: 75%;
   margin: auto;
   display: block;
 }
@@ -51,4 +51,18 @@ form {
 .linkSearch {
   margin: auto;
   display: block;
+}
+.btnCarrito {
+  margin: auto;
+  display: block;
+  color: #000000;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 40px;
+  border: 2px solid #000000;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 0;
 }

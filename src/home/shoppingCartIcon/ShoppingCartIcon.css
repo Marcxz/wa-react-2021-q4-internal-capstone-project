@@ -1,0 +1,10 @@
+.container_cart {
+    margin: auto;
+    display: block;
+    margin-right: 10px;
+}
+.img_cart {
+    cursor: pointer;
+    width: 72px;
+    height: 72px;
+}

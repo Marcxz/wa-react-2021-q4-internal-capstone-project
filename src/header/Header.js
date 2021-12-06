@@ -1,7 +1,7 @@
 import "./Header.css"
 import React from 'react';
 import { Link } from "react-router-dom"
-
+import ShoppingCartIcon from "../home/shoppingCartIcon/ShoppingCartIcon";
 export default function Header() {
     return (
             <div className="container">
@@ -12,6 +12,7 @@ export default function Header() {
                     <input name="q" className="searchInput"  placeholder="Teclee los elementos a buscar" type="text"/>
                     <button className="btnSearch" type="submit">Buscar Elementos</button>
                 </form>
+               <ShoppingCartIcon />
             </div>
     )
 }

@@ -1,13 +1,14 @@
 import "./Home.css"
 
-import React from "react"
+import React, { useState } from "react"
 import Banner from "./featuredBanners/Banner";
 import Category  from "./productCategories/Category"
 import Product from "./products/Product";
-import { useState } from "react/cjs/react.development";
 import {Route, Routes} from 'react-router-dom'
 import ProductDetail from "./productDetail/ProductDetail"
 import SearchProduct from "./searchProduct/SearchProduct";
+import ShoppingCart from "./shoppingCart/ShoppingCart";
+
 function Home() {
 
     const [arrCategory, setCategory] = useState([]);
@@ -19,6 +20,7 @@ function Home() {
             <Route exact path={"/productDetail/:id"} element={<ProductDetail />} />
             <Route exact path='/products' element={<GalleryProduct arrCategory={arrCategory} setCategory={setCategory} />} />
             <Route exact path='/search' element={<SearchProduct />} />
+            <Route exact path='/cart' element={<ShoppingCart />} />
         </Routes>
     )
 }

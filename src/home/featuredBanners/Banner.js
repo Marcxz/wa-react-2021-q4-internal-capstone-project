@@ -2,8 +2,13 @@ import "./Banner.css"
 import * as featuredBanners from "../../mocks/es-mx/featured-banners.json"
 import React from "react"
 import { Link } from "react-router-dom"
-import Product from "../products/Product"
 function Banner ({arrCategory, setCategory}) {
+        
+        const ViewAllProducts = () => {
+            setCategory(arrCategory)       
+        }
+
+        setCategory(arrCategory)
 
         return (
         <React.Fragment>
@@ -24,10 +29,9 @@ function Banner ({arrCategory, setCategory}) {
                         )}
                     </ul>
                 </div>
-                <Product arrCategory={arrCategory} setCategory={setCategory} />
  
                 <Link to="/products">
-                    <button className="btn">Ver todos los productos</button>
+                    <button className="btn" onClick={() => { ViewAllProducts()}}>Ver todos los productos</button>
                 </Link>
 
             </div>

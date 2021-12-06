@@ -5,25 +5,13 @@ import { Link } from "react-router-dom"
 
 import Pagination from '../pagnation/Pagination'
 import * as featuredProducts from "../../mocks/es-mx/products.json"
-import * as productCategories from "../../mocks/es-mx/product-categories.json"
 
 export default function Product({arrCategory, setCategory}) {
-    
-    const ViewAllProducts = () => {
-        if(productCategories.results && productCategories.results.length >= 0) {
-            let categories = [];
-            productCategories.results.map((category) => 
-                categories.push(category.data.name.toLowerCase())
-            )
-            setCategory(categories)
 
-        }
-    }
     return (
         <div className="containerGrid">
             <div>
                 <h1>Productos:</h1> 
-                <button className="btn" onClick={() => {ViewAllProducts()}}>Ver todos los productos</button>
             </div>
             <ul className="grid">
             {featuredProducts.results && featuredProducts.results.filter(product => arrCategory.includes(product.data.category.slug.toLowerCase())).map( (product, index) => 
