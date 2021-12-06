@@ -1,5 +1,4 @@
 import "./ShoppingCart.css"
-import react from "react"
 
 function ShoppingCart() {
     return (
