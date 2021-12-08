@@ -1,12 +1,17 @@
 import "./SearchProduct.css"
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import * as featuredProducts from "../../mocks/es-mx/products.json"
+import EcommerceContext from "../../state/Context";
 
 function SearchProduct() {
     const [criterio, setCriterio] = useState("")
     const [products, setProducts] = useState(featuredProducts.results)     
     
-    const queryProducts = () => {
+    const {cart, setCartProduct, 
+        quantityCart, setQuantityCart, 
+        setTotalCart} = useContext(EcommerceContext);
+    
+        const queryProducts = () => {
             const search = window.location.search;
             const params = new URLSearchParams(search);
             // here we will filter the products
@@ -20,6 +25,33 @@ function SearchProduct() {
                 setProducts(features)
             }
     }
+
+    const addCartProduct = (pro) => {
+        let found = false;
+        let tmpTotal = 0;
+        // the product already is in the cart
+        cart.map((p) => {
+            if(pro.id === p.product.id) {
+                found = true;
+                p.quantity += 1;
+            }
+            tmpTotal += p.quantity * p.product.data.price;
+            return null;
+        })
+        // the product isn't in the cart
+        if (!found) {
+            cart.push({
+                product: pro,
+                quantity: 1,
+            })
+            tmpTotal += 1 * pro.data.price;
+        }
+        setQuantityCart(quantityCart+1)
+        setTotalCart(tmpTotal)
+        setCartProduct(cart)
+        alert("Se agrego el producto en el carrito")
+    }
+
     useEffect(() => {
         queryProducts()
     })
@@ -65,10 +97,13 @@ function SearchProduct() {
                             
                             <div className="containerRowPD">
                                 <div className="containerSubDataSearchProduct">
-                                    <button>Agregar al carrito</button>
+                                    <button className="btnCart" onClick={() => addCartProduct(product)}>
+                                        Agregar al carrito
+                                        <img className="iconRight" alt="add to cart icon" src="/assets/add_to_cart.png" /> 
+                                    </button>
                                 </div>
                             </div>
-                    </div>
+                        </div>
                     </div>
                 )}
             </div>

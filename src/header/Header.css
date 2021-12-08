@@ -48,10 +48,12 @@ form {
   -o-transition: all .25s ease;
   transition: all .25s ease;
 }
+
 .linkSearch {
   margin: auto;
   display: block;
 }
+
 .btnCarrito {
   margin: auto;
   display: block;

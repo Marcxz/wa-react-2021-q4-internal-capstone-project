@@ -1,9 +1,9 @@
 import "./ProductDetail.css"
 
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useContext } from "react"
 import * as featuredProducts from "../../mocks/es-mx/products.json"
 import { useParams, Link } from "react-router-dom";
-
+import EcommerceContext from "../../state/Context";
 function ProductDetail() {
     const params = useParams()
     const [product, setProduct] = useState()
@@ -12,6 +12,9 @@ function ProductDetail() {
         url: "",
         alt: "",
     })
+    const {cart, setCartProduct, 
+           quantityCart, setQuantityCart, 
+           setTotalCart} = useContext(EcommerceContext);
 
     const handleProduct = () => {
         if (!product) {
@@ -38,7 +41,32 @@ function ProductDetail() {
             alt: image.alt,
         })
     }
-   
+    const addCartProduct = (pro) => {
+        let found = false;
+        let tmpTotal = 0;
+        // the product already is in the cart
+        cart.map((p) => {
+            if(pro.id === p.product.id) {
+                found = true;
+                p.quantity += cantidad;
+            }
+            tmpTotal += p.quantity * p.product.data.price;
+            return null;
+        })
+        // the product isn't in the cart
+        if (!found) {
+            cart.push({
+                product: pro,
+                quantity: cantidad,
+            })
+            tmpTotal += cantidad * pro.data.price;
+        }
+        setQuantityCart(quantityCart+cantidad)
+        setTotalCart(tmpTotal)
+        setCartProduct(cart)
+        alert("Se agrego el producto en el carrangas")
+    }
+
     handleProduct()
     
     useEffect(() => {
@@ -53,7 +81,10 @@ function ProductDetail() {
         
         <div className="containerProductDetail">
             <Link to="/products">
-                <button className="btn">Regresar</button>
+                <button className="btn"> 
+                    <img className="iconLeft" alt="add to cart icon" src="/assets/arrow_back.png" />
+                    Regresar
+                </button>
             </Link>
             <div className="splitterProductDetail">
                 <div className="sectionProductDetail">
@@ -107,7 +138,10 @@ function ProductDetail() {
                         </div>
                     </div>
                     <div className="containerRowProductDetail">
-                            <button>Agregar al carrito</button>
+                            <button className="btnCart" onClick={()=> { addCartProduct(product) }}>
+                                Agregar al carrito
+                                <img className="iconRight" alt="add to cart icon" src="/assets/add_to_cart.png" />
+                            </button>
                     </div>
                     <div className="separatorProductDetail" />
                     <div className="containerRowProductDetail">

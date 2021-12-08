@@ -4,15 +4,29 @@ import Header from './header/Header'
 import { Footer } from './footer/Footer'
 import Home from './home/Home';
 import { BrowserRouter as Router} from 'react-router-dom'
+import EcommerceContext from './state/Context';
+import { useState } from 'react/cjs/react.development';
+
 function App() {
   useFeaturedBanners();
+  
+  const [cart, setCartProduct] = useState([])
+  const [quantityCart, setQuantityCart] = useState(0)
+  const [totalCart, setTotalCart] = useState(0)
 
   return (
       <Router>
+        
         <div className="App">
-          <Header />
-          <Home />
-          <Footer />
+          <EcommerceContext.Provider
+            value = {{cart, setCartProduct,
+                      quantityCart, setQuantityCart,
+                      totalCart, setTotalCart}}
+          >
+            <Header />
+            <Home />
+            <Footer />
+          </EcommerceContext.Provider>
         </div>
       </Router>
   );

@@ -21,18 +21,39 @@ h1 {
 }
 
 .btn {
-    margin: auto;
-    display: block;
     color: #000000;
     cursor: pointer;
     height: 40px;
     line-height: 40px;
-    padding: 0 40px;
+    padding: 0 20px;
     border: 2px solid #000000;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 12px;
     font-weight: bold;
-    position: relative;
-    z-index: 0;
   }
+
+.btnCart {
+    color: #000000;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    border: 2px solid #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.iconRight {
+    margin-left: 10px !important;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.iconLeft {
+    margin-right: 10px !important;
+    width: 20px !important;
+    height: 20px !important;
+}

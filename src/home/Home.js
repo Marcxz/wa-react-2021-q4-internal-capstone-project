@@ -8,6 +8,7 @@ import {Route, Routes} from 'react-router-dom'
 import ProductDetail from "./productDetail/ProductDetail"
 import SearchProduct from "./searchProduct/SearchProduct";
 import ShoppingCart from "./shoppingCart/ShoppingCart";
+import Checkout from "./checkout/Checkout";
 
 function Home() {
 
@@ -21,6 +22,7 @@ function Home() {
             <Route exact path='/products' element={<GalleryProduct arrCategory={arrCategory} setCategory={setCategory} />} />
             <Route exact path='/search' element={<SearchProduct />} />
             <Route exact path='/cart' element={<ShoppingCart />} />
+            <Route exact path='/checkout' element={<Checkout />} />
         </Routes>
     )
 }

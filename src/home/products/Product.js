@@ -1,12 +1,42 @@
 import "./Product.css"
 
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom"
 
 import Pagination from '../pagnation/Pagination'
 import * as featuredProducts from "../../mocks/es-mx/products.json"
+import EcommerceContext from "../../state/Context";
 
 export default function Product({arrCategory, setCategory}) {
+    const {cart, setCartProduct, 
+        quantityCart, setQuantityCart, 
+        setTotalCart} = useContext(EcommerceContext);
+
+    const addCartProduct = (pro) => {
+        let found = false;
+        let tmpTotal = 0;
+        // the product already is in the cart
+        cart.map((p) => {
+            if(pro.id === p.product.id) {
+                found = true;
+                p.quantity += 1;
+            }
+            tmpTotal += p.quantity * p.product.data.price;
+            return null;
+        })
+        // the product isn't in the cart
+        if (!found) {
+            cart.push({
+                product: pro,
+                quantity: 1,
+            })
+            tmpTotal += 1 * pro.data.price;
+        }
+        setQuantityCart(quantityCart+1)
+        setTotalCart(tmpTotal)
+        setCartProduct(cart)
+        alert("Se agrego el producto en el carrito")
+    }
 
     return (
         <div className="containerGrid">
@@ -22,10 +52,16 @@ export default function Product({arrCategory, setCategory}) {
                     <span>{`$ ${product.data.price}`}</span>
                     <span>
                         <Link to={`/productDetail/${product.id}`}>
-                            <button>Ver detalle del producto</button>
+                            <button className="btnCart">
+                                Ver detalle del producto
+                                <img className="iconLeft" alt="Detalle del articulo" src="/assets/article_detail.png" />
+                            </button>
                         </Link>
                     </span>
-                    <button>Agregar al carrito</button>
+                    <button onClick={ () => addCartProduct(product)} className="btnCart">
+                        Agregar al carrito
+                        <img className="iconRight" alt="Agregar al carrito" src="/assets/add_to_cart.png" />
+                    </button>
                 </li>                    
             )}
             </ul>
