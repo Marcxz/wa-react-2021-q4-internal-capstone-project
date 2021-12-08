@@ -1,6 +1,13 @@
 import React from "react";
 
 const EcommerceContext = React.createContext({
+    customer: {
+        name: '',
+        email: '',
+        zipCode: '',
+        notes: '',
+    },
+    setCustomer: () => {},
     cart: [],
     setCartProduct: () => {},
     removeCartProduct: () => {},

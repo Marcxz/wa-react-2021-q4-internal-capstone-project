@@ -14,3 +14,63 @@
     text-align: center;
     align-self: center;
 }
+.tblCheckout {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    align-items: center;
+    text-align: center;
+    align-self: center;
+    background-color: #5599bb;
+    border: 1px solid white;
+    color: white;
+    margin-bottom: 20px;
+}
+.sectionCeckout {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    min-height: 350px;
+}
+.rowSection {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 5px;
+}
+.labelCheckout {
+    width: 20%;
+}
+
+.inputCheckout {  
+    width: 80%;
+    margin: auto;
+    height: 20px;
+}
+.noteSection {
+    width: 100%;
+}
+
+.checkoutTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.checkoutTable thead tr {
+    background-color: #5599bb;;
+    color: #ffffff;
+    text-align: center;
+}
+.checkoutTable thead tr {
+    border-bottom: 1px solid #dddddd;
+    text-align: left;
+}
+.checkoutTable tbody tr {
+    background-color: #f3f3f3;
+    color: black;
+}

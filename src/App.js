@@ -13,7 +13,12 @@ function App() {
   const [cart, setCartProduct] = useState([])
   const [quantityCart, setQuantityCart] = useState(0)
   const [totalCart, setTotalCart] = useState(0)
-
+  const [customer, setCustomer] = useState({
+    name: '',
+    email: '',
+    zipCode: '',
+    notes: '',
+})
   return (
       <Router>
         
@@ -21,7 +26,8 @@ function App() {
           <EcommerceContext.Provider
             value = {{cart, setCartProduct,
                       quantityCart, setQuantityCart,
-                      totalCart, setTotalCart}}
+                      totalCart, setTotalCart,
+                      customer, setCustomer}}
           >
             <Header />
             <Home />

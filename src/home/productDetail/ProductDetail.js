@@ -161,6 +161,7 @@ function ProductDetail() {
                           <tr key={index}>
                               <td>{spec.spec_name}</td>
                               <td>{spec.spec_value}</td>
+                              
                           </tr>
                         )} 
                       </tbody>
