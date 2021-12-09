@@ -46,19 +46,19 @@ export default function Product({arrCategory, setCategory}) {
             <ul className="grid">
             {featuredProducts.results && featuredProducts.results.filter(product => arrCategory.includes(product.data.category.slug.toLowerCase())).map( (product, index) => 
                 <li key={product.id} className="containerItem">
-                    <img src={product.data.mainimage.url} alt={product.data.mainimage.alt} title={product.data.name} />
+                    <img className="mainImage" src={product.data.mainimage.url} alt={product.data.mainimage.alt} title={product.data.name} />
                     <span>{product.data.name}</span>
                     <span>{product.data.category.slug}</span>
                     <span>{`$ ${product.data.price}`}</span>
                     <span>
                         <Link to={`/productDetail/${product.id}`}>
-                            <button className="btnCart">
+                            <button className="btnCartProduct">
                                 Ver detalle del producto
                                 <img className="iconLeft" alt="Detalle del articulo" src="/assets/article_detail.png" />
                             </button>
                         </Link>
                     </span>
-                    <button onClick={ () => addCartProduct(product)} className="btnCart">
+                    <button onClick={ () => addCartProduct(product)} className="btnCartProduct">
                         Agregar al carrito
                         <img className="iconRight" alt="Agregar al carrito" src="/assets/add_to_cart.png" />
                     </button>

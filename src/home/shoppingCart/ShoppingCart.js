@@ -1,5 +1,5 @@
 import "./ShoppingCart.css"
-import React, {useContext} from "react"
+import React, {useContext, useEffect} from "react"
 import { Link } from "react-router-dom"
 import EcommerceContext from "../../state/Context"
 
@@ -9,13 +9,10 @@ function ShoppingCart() {
            totalCart, setTotalCart} = useContext(EcommerceContext)
 
     const removeProduct = (product) => {
-        
         let tmpCart = cart;
         tmpCart = tmpCart.filter(p => p.product.id !== product.product.id);
         setCartProduct(tmpCart);
-        
         setTimeout(updateTotal(), 100);
-
     }
 
     const updateTotal = () => {
@@ -29,10 +26,11 @@ function ShoppingCart() {
         setQuantityCart(tmpQuantity);
         setTotalCart(tmpTotal)
     }
-    const checkout = () => {
-        alert('Proceed to checkout');
-    }
-
+    
+    useEffect(() => {
+        updateTotal();
+    })
+   
     // Rendering
     if(cart.length === 0) {
         return (
