@@ -12,7 +12,7 @@ export default function Header() {
                 <Link to="/home">
                     <img alt="logo_image" src="assets/logo.png" /> 
                 </Link>
-                <div className="containerSearch">
+                <div className="containerSearch"> 
                     <input id="q" className="searchInput"  placeholder="Teclee los elementos a buscar" type="text"/>
                     <button className="btnSearch" onClick={()=>{searchProduct()}}>Buscar Elementos</button>
                 </div>
