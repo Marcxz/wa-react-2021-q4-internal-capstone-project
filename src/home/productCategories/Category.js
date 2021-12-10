@@ -28,49 +28,51 @@ const Selected = styled.div`
     background-color: #5599bb;
 `;
 
-export default function Category({setCategory}) {
+export default function Category({isLoadingCategories, arrCategory, setCategory}) {
     const [productCategories, setProductCategories] = useState([])
-    let arrCategory = [];
+
     const fillCategories = () => {
-        arrCategory = []
-        productCategories.results.map((c, i) => {
-            if(c.selected) {
-                arrCategory.push(c.data.name.toLowerCase())
-            }
+        let arrCategories = []
+        productCategories.map((c, i) => {
+            arrCategories.push(c)
             return null;
         })
+        return arrCategories;
     }
-    const handleAddCategory = (category) => {        
-        category.selected = true;
-        fillCategories()
-        setProductCategories(productCategories)
-        setCategory(arrCategory)
 
+    const handleAddCategory = (category, index) => {
+        category.selected = true;
+        let arrCategories = fillCategories();
+        setProductCategories(arrCategories)
+        setCategory(arrCategories)
     }
     
     const handleRemoveCategory = (category) => {
         category.selected = false;
-        fillCategories()
-        setProductCategories(productCategories)
-        setCategory(arrCategory);
+        let arrCategories = fillCategories();
+        setProductCategories(arrCategories)
+        setCategory(arrCategories);
     }
-    
+    const removeFilters = () => {
+        let arrCategories = [];
+        productCategories.map((c, i) => {
+            c.selected = false
+            arrCategories.push(c)
+            return null;
+        })
+        setProductCategories(arrCategories)
+        setCategory(arrCategories);
+    }
     useEffect(() => {
-        if(!productCategories.results) {
-            fetch('../../mocks/es-mx/product-categories.json')
-            .then(response => {
-                return response.json()
-            })
-            .then(data => {
-                setProductCategories(data)
-            })    
+        if(!isLoadingCategories) {
+            setProductCategories(arrCategory)  
         }
     })
     return (
         <div className="containerGridCategory">
             <h1>Categorias</h1>
             <ul className="gridCategory">
-            {productCategories && productCategories.results && productCategories.results.map( (category, index) => 
+            {productCategories && productCategories.map( (category, index) => 
                 <CategoryContainer key={category.id}>
                     {category.selected ? (
                     <Selected key={category.id}>
@@ -86,6 +88,7 @@ export default function Category({setCategory}) {
                 </CategoryContainer>        
             )}
             </ul>
+            <button className="btnCart" onClick={() => removeFilters()}>Eliminar Filtros</button>
         </div>
     )
 }

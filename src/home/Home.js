@@ -1,6 +1,6 @@
 import "./Home.css"
 
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Route, Routes } from 'react-router-dom'
 
 import Banner from "./featuredBanners/Banner";
@@ -10,28 +10,44 @@ import ProductDetail from "./productDetail/ProductDetail"
 import SearchProduct from "./searchProduct/SearchProduct";
 import ShoppingCart from "./shoppingCart/ShoppingCart";
 import Checkout from "./checkout/Checkout";
-
+import { useFeaturedBanners } from "../utils/hooks/useFeaturedBanners";
 
 function Home() {
-  
+    
+    const [arrCategory, setCategory] = useState([]);
+    const [arrProducts, setProduct] = useState([]);
+
+    const { data: featuredCategories, isLoading: isLoadingCategories } = useFeaturedBanners("category", 30);  
+    const { data: featuredProducts, isLoading: isLoadingFeatureProduct } = useFeaturedBanners("product", 1000);
+
+    useEffect(() => {
+        if(!isLoadingCategories) {
+            setCategory(featuredCategories.results)
+        }
+        if(!isLoadingFeatureProduct) {
+            setProduct(featuredProducts)
+        }
+    })
+
     return (
         <Routes>
             <Route path={"/"} element={<Banner />} />
             <Route path={"/home"} element={<Banner />} />
-            <Route exact path='/products' element={<GalleryProduct />} />
+            <Route exact path='/products' element={<GalleryProduct isLoadingCategories={isLoadingCategories} arrCategory={arrCategory} setCategory={setCategory} featuredProducts={arrProducts} setProduct={setProduct}/>} />
             <Route exact path='/search' element={<SearchProduct />} />
             <Route exact path='/cart' element={<ShoppingCart />} />
             <Route exact path='/checkout' element={<Checkout />} />
+            <Route exact path={"/productDetail/:id"} element={<ProductDetail />} />
         </Routes>
     )
 }
 
-function GalleryProduct () {
+function GalleryProduct ({isLoadingCategories, arrCategory, setCategory, featuredProducts, setProduct}) {
     return (
         <React.Fragment>    
             <div className="containerCategoryProducts">
-                <Category />
-                <Product />
+            <Category isLoadingCategories={isLoadingCategories} arrCategory={arrCategory} setCategory={setCategory} />
+                <Product arrCategory={arrCategory} setCategory={setCategory} featuredProducts={featuredProducts} setProduct={setProduct}  />
             </div>
         </React.Fragment>
     )
