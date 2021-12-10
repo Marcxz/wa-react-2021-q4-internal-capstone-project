@@ -1,12 +1,13 @@
 import "./SearchProduct.css"
 import React, {useState, useEffect, useContext} from "react";
-import * as featuredProducts from "../../mocks/es-mx/products.json"
+import { useFeaturedBanners } from "../../utils/hooks/useFeaturedBanners";
 import EcommerceContext from "../../state/Context";
 
 function SearchProduct() {
     const [criterio, setCriterio] = useState("")
-    const [products, setProducts] = useState(featuredProducts.results)     
-    
+    const [products, setProducts] = useState([])     
+    const { data: featuredProducts, isLoading: isLoadingFeatureProduct } = useFeaturedBanners("product", 999999);  
+
     const {cart, setCartProduct, 
         quantityCart, setQuantityCart, 
         setTotalCart} = useContext(EcommerceContext);
@@ -53,7 +54,9 @@ function SearchProduct() {
     }
 
     useEffect(() => {
-        queryProducts()
+        if (!isLoadingFeatureProduct) {
+            queryProducts()
+        }
     })
     if (products.length === 0) {
         return (
@@ -63,7 +66,10 @@ function SearchProduct() {
         )    
     } else {
         return (
+      
             <div className="containerSearchProduct">
+                {!isLoadingFeatureProduct ? 
+                <>
                 <h3>Resultados encontrados con el criterio  ({products.length}): {criterio}</h3>
                 {products && products.map((product, index) => 
                     <div key={index} className="cardSearchProduct">
@@ -106,7 +112,8 @@ function SearchProduct() {
                         </div>
                     </div>
                 )}
-            </div>
+                </> : <h1>Cargando</h1> }
+            </div> 
         )
     }
 }
