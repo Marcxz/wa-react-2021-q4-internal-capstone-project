@@ -64,7 +64,7 @@ function ProductDetail() {
         setQuantityCart(quantityCart+cantidad)
         setTotalCart(tmpTotal)
         setCartProduct(cart)
-        alert("Se agrego el producto en el carrangas")
+        alert("Se agrego el producto en el carrito")
     }
 
     handleProduct()

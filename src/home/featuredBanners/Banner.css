@@ -88,3 +88,25 @@
     font-size: 20px;
     border-radius: 100%;
   }
+
+  .containerSliderGridCategory {
+    display: flex;
+    flex-direction: row;
+    background-color: #282c34;
+    width: 100%;
+  }
+
+  .containerSliderCategory {
+    width: 100%;
+    margin-right: 10px;
+    transition: 0.3s;
+    border-style: solid;
+    border-width: thin;
+    border-color: white;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: #282c34;    
+   }
+   .productLabel {
+     font-size: 10pt !important;
+   }

@@ -4,10 +4,9 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom"
 
 import Pagination from '../pagnation/Pagination'
-import * as featuredProducts from "../../mocks/es-mx/products.json"
 import EcommerceContext from "../../state/Context";
 
-export default function Product({arrCategory, setCategory}) {
+export default function Product({arrCategory, setCategory, featuredProducts}) {
     const {cart, setCartProduct, 
         quantityCart, setQuantityCart, 
         setTotalCart} = useContext(EcommerceContext);

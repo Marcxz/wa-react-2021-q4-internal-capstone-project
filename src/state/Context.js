@@ -16,8 +16,10 @@ const EcommerceContext = React.createContext({
     totalCart: 0,
     setTotalCart: () => {},
     banners: {},
+    setFeaturedBanners: () => {},
     categories: {},
     products: {},
 });
+
 
 export default EcommerceContext;
