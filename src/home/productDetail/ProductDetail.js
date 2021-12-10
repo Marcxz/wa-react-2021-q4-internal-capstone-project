@@ -1,10 +1,9 @@
 import "./ProductDetail.css"
 
 import React, { useEffect, useState, useContext } from "react"
-import * as featuredProducts from "../../mocks/es-mx/products.json"
 import { useParams, Link } from "react-router-dom";
 import EcommerceContext from "../../state/Context";
-function ProductDetail() {
+function ProductDetail({featuredProducts}) {
     const params = useParams()
     const [product, setProduct] = useState()
     const [cantidad, setCantidad] = useState(1)

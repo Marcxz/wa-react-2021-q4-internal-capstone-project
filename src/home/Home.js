@@ -33,21 +33,21 @@ function Home() {
         <Routes>
             <Route path={"/"} element={<Banner />} />
             <Route path={"/home"} element={<Banner />} />
-            <Route exact path='/products' element={<GalleryProduct isLoadingCategories={isLoadingCategories} arrCategory={arrCategory} setCategory={setCategory} featuredProducts={arrProducts} setProduct={setProduct}/>} />
+            <Route exact path='/products' element={<GalleryProduct isLoadingCategories={isLoadingCategories} arrCategory={arrCategory} setCategory={setCategory} isLoadingFeatureProduct={isLoadingFeatureProduct} featuredProducts={arrProducts} setProduct={setProduct}/>} />
             <Route exact path='/search' element={<SearchProduct />} />
             <Route exact path='/cart' element={<ShoppingCart />} />
             <Route exact path='/checkout' element={<Checkout />} />
-            <Route exact path={"/productDetail/:id"} element={<ProductDetail />} />
+            <Route exact path={"/productDetail/:id"} element={<ProductDetail featuredProducts={arrProducts} />} />
         </Routes>
     )
 }
 
-function GalleryProduct ({isLoadingCategories, arrCategory, setCategory, featuredProducts, setProduct}) {
+function GalleryProduct ({isLoadingCategories, arrCategory, setCategory, isLoadingFeatureProduct, featuredProducts, setProduct}) {
     return (
         <React.Fragment>    
             <div className="containerCategoryProducts">
-            <Category isLoadingCategories={isLoadingCategories} arrCategory={arrCategory} setCategory={setCategory} />
-                <Product arrCategory={arrCategory} setCategory={setCategory} featuredProducts={featuredProducts} setProduct={setProduct}  />
+            <Category isLoadingCategories={isLoadingCategories} arrCategory={arrCategory} setCategory={setCategory} isLoadingFeatureProduct={isLoadingFeatureProduct} featuredProducts={featuredProducts} setProduct={setProduct} />
+                <Product featuredProducts={featuredProducts} />
             </div>
         </React.Fragment>
     )

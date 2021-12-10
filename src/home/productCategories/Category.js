@@ -28,7 +28,7 @@ const Selected = styled.div`
     background-color: #5599bb;
 `;
 
-export default function Category({isLoadingCategories, arrCategory, setCategory}) {
+export default function Category({isLoadingCategories, arrCategory, setCategory, isLoadingFeatureProduct, featuredProducts, setProduct}) {
     const [productCategories, setProductCategories] = useState([])
 
     const fillCategories = () => {
@@ -39,33 +39,75 @@ export default function Category({isLoadingCategories, arrCategory, setCategory}
         })
         return arrCategories;
     }
-
+    const filterProducts = () => {
+        if (arrCategory.length > 0 &&
+            featuredProducts.results && featuredProducts.results.length > 0) {
+                
+                //turn off all products 
+                featuredProducts.results.map(p => {
+                    p.selected = false;
+                    return null;
+                });   
+                
+                let tmpArrCategories = arrCategory.filter(c => c.selected)
+                if(tmpArrCategories.length === 0) {
+                    featuredProducts.results.map(p => {
+                        p.selected = true;
+                        return null;
+                    });    
+                } else {
+                    for (let i = 0; i < featuredProducts.results.length; i++) {
+                        tmpArrCategories.map(category => {
+                            let categoryName = category.data.name;
+                        
+                            categoryName = categoryName.toLowerCase();
+                            categoryName = categoryName.replace("á", "a");
+                            categoryName = categoryName.replace("é", "e");
+                            categoryName = categoryName.replace("í", "i");
+                            categoryName = categoryName.replace("ó", "o");
+                            categoryName = categoryName.replace("ú", "u");
+                            if(categoryName === featuredProducts.results[i].data.category.slug) {
+                                featuredProducts.results[i].selected = true;
+                            }
+                            return null;
+                        })
+                    }
+                }
+            }
+            setProduct(featuredProducts)
+    }
     const handleAddCategory = (category, index) => {
         category.selected = true;
         let arrCategories = fillCategories();
-        setProductCategories(arrCategories)
-        setCategory(arrCategories)
+        setProductCategories(arrCategories);
+        setCategory(arrCategories);
+        filterProducts();
     }
     
     const handleRemoveCategory = (category) => {
         category.selected = false;
         let arrCategories = fillCategories();
-        setProductCategories(arrCategories)
+        setProductCategories(arrCategories);
         setCategory(arrCategories);
+        filterProducts();
     }
     const removeFilters = () => {
         let arrCategories = [];
         productCategories.map((c, i) => {
-            c.selected = false
-            arrCategories.push(c)
+            c.selected = false;
+            arrCategories.push(c);
             return null;
         })
-        setProductCategories(arrCategories)
+        setProductCategories(arrCategories);
         setCategory(arrCategories);
+        filterProducts();
     }
     useEffect(() => {
         if(!isLoadingCategories) {
-            setProductCategories(arrCategory)  
+            setProductCategories(arrCategory) 
+        }
+        if(!isLoadingCategories && !isLoadingFeatureProduct) {
+            filterProducts() 
         }
     })
     return (

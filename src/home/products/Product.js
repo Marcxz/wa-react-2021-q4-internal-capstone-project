@@ -1,12 +1,11 @@
 import "./Product.css"
 
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom"
-
 import Pagination from '../pagnation/Pagination'
 import EcommerceContext from "../../state/Context";
 
-export default function Product({arrCategory, setCategory, featuredProducts}) {
+export default function Product({featuredProducts}) {
     const {cart, setCartProduct, 
         quantityCart, setQuantityCart, 
         setTotalCart} = useContext(EcommerceContext);
@@ -36,14 +35,13 @@ export default function Product({arrCategory, setCategory, featuredProducts}) {
         setCartProduct(cart)
         alert("Se agrego el producto en el carrito")
     }
-
     return (
         <div className="containerGrid">
             <div>
                 <h1>Productos:</h1> 
             </div>
             <ul className="grid">
-            {featuredProducts.results && featuredProducts.results.filter(product => arrCategory.includes(product.data.category.slug.toLowerCase())).map( (product, index) => 
+            {featuredProducts.results && featuredProducts.results.filter(p => p.selected).map( (product, index) => 
                 <li key={product.id} className="containerItem">
                     <img className="mainImage" src={product.data.mainimage.url} alt={product.data.mainimage.alt} title={product.data.name} />
                     <span>{product.data.name}</span>
