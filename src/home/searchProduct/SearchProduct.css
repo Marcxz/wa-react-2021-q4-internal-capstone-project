@@ -1,0 +1,84 @@
+.containerSearchProduct {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #282c34;
+    color: white;
+    text-align: center;
+    align-items: center;
+    min-height: 812px;
+}
+.cardSearchProduct {
+    display: flex;
+    flex-direction: row;
+    background-color: #5599bb;
+    width: 70%;    
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+.containerSearchProduct img {
+    border-radius: 5px 5px 0 0;
+    width: 20%;
+    height: 200px;
+}
+
+.containerDataSearchProduct {
+    width: 70%;
+    margin-left: 15px;
+}
+.containerRowPD {
+    width:100%;
+}
+
+.containerSubDataSearchProduct {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.containerShortDescriptionSearchProduct {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.containerShortDescriptionSearchProduct .title {
+    width: 15%;
+    color: white;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: row;
+}
+
+.containerShortDescriptionSearchProduct .description {
+    width: 90%;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    text-align: justify;
+}
+.containerSubDataSearchProduct .title {
+    width: 50%;
+    color: white;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: row;
+}
+
+.containerSubDataSearchProduct .description {
+    width: 50%;
+    color: white;
+    display: flex;
+    flex-direction: row;
+}
+.titleProduct {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}

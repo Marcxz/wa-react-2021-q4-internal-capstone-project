@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    vertical-align: middle;
+    width: 100%;
+    height: 9%;
+    min-height: 80px;
+    background-color: #5599bb;
+}
+span {
+    margin: auto;
+    display: block;
+    color: white;
+    font-weight: bolder;
+}

@@ -1,0 +1,59 @@
+.containerCategoryProducts {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: #282c34;
+    min-height: 85vh;
+    height: 80%;
+}
+.category {
+    width: 20%;
+    height: 100%;
+}
+
+.products {
+    width: 80%;
+    height: 100%;
+}
+
+h1 {
+    color: white;
+}
+
+.btn {
+    color: #000000;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    border: 2px solid #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+.btnCart {
+    color: #000000;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    border: 2px solid #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.iconRight {
+    margin-left: 10px !important;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.iconLeft {
+    margin-right: 10px !important;
+    width: 20px !important;
+    height: 20px !important;
+}
