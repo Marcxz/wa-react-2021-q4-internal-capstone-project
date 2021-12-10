@@ -21,12 +21,15 @@ function Home() {
     const { data: featuredProducts, isLoading: isLoadingFeatureProduct } = useFeaturedBanners("product", 1000);
 
     useEffect(() => {
-        if(!isLoadingCategories) {
-            setCategory(featuredCategories.results)
+        const loadingData = () => {
+            if(!isLoadingCategories) {
+                setCategory(featuredCategories.results)
+            }
+            if(!isLoadingFeatureProduct) {
+                setProduct(featuredProducts)
+            }    
         }
-        if(!isLoadingFeatureProduct) {
-            setProduct(featuredProducts)
-        }
+        loadingData()
     })
 
     return (

@@ -42,7 +42,7 @@ export function useFeaturedBanners(apiType, quantity) {
     return () => {
       controller.abort();
     };
-  }, [apiRef, isApiMetadataLoading]);
+  }, [apiRef, isApiMetadataLoading, apiType, quantity]);
 
   return featuredBanners;
 }

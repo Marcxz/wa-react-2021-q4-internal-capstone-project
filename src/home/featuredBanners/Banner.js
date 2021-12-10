@@ -1,6 +1,5 @@
 import "./Banner.css"
 import React, {useContext} from "react"
-import styled from '@emotion/styled'
 import { Link } from "react-router-dom"
 import {useFeaturedBanners} from "../../utils/hooks/useFeaturedBanners"
 import EcommerceContext from "../../state/Context"

@@ -139,16 +139,19 @@ export default function Category({isLoadingCategories, arrCategory, setCategory,
         filterProducts();
     }
     useEffect(() => {
-        if(!isLoadingCategories) {
-            setProductCategories(arrCategory) 
+        const loadingData = () => {
+            if(!isLoadingCategories) {
+                setProductCategories(arrCategory) 
+            }
+            if(!isLoadingCategories && !isLoadingFeatureProduct && !isFilteredByUrl && params.categoryName) {
+                    filterProductsByUrl(params.categoryName.toString());
+            }
+            if(!isLoadingCategories && !isLoadingFeatureProduct && !params.categoryName) {
+                console.log(params.categoryName)
+                filterProducts();
+            }
         }
-        if(!isLoadingCategories && !isLoadingFeatureProduct && !isFilteredByUrl && params.categoryName) {
-                filterProductsByUrl(params.categoryName.toString());
-        }
-        if(!isLoadingCategories && !isLoadingFeatureProduct && !params.categoryName) {
-            console.log(params.categoryName)
-            filterProducts();
-        }
+        loadingData();
     })
     return (
         <div className="containerGridCategory">
