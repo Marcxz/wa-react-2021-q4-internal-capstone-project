@@ -20,6 +20,8 @@ function Home() {
             <Route path={"/home"} element={<Banner />} />
             <Route exact path='/products' element={<GalleryProduct />} />
             <Route exact path='/search' element={<SearchProduct />} />
+            <Route exact path='/cart' element={<ShoppingCart />} />
+            <Route exact path='/checkout' element={<Checkout />} />
         </Routes>
     )
 }
