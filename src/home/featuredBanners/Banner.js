@@ -9,7 +9,6 @@ function Banner () {
         const { data: featuredBanners, isLoading: isLoadingFeatureBanners } = useFeaturedBanners("banner", 5);  
         const { data: categories, isLoading: isLoadingCategories } = useFeaturedBanners("category", 30);  
         const { data: featuredProducts, isLoading: isLoadingFeatureProduct } = useFeaturedBanners("product", 16);  
-        console.log(featuredProducts)
         const {cart, setCartProduct, 
             quantityCart, setQuantityCart, 
             setTotalCart} = useContext(EcommerceContext);
@@ -66,7 +65,9 @@ function Banner () {
                 {categories.results.map( (category, index) => 
                     <div className="containerSliderCategory" key={category.id}>
                         <span className="categoryName">{category.data.name}</span>
-                        <img className="categoryImage" onClick={() => {alert('hi category')}} title={category.data.name} src={category.data.main_image.url} alt={category.data.main_image.alt} />
+                        <Link to={`/products/${category.data.name}`} >
+                            <img className="categoryImage" title={category.data.name} src={category.data.main_image.url} alt={category.data.main_image.alt} />
+                        </Link>
                     </div> 
                 )}
             </div>

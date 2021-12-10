@@ -34,6 +34,7 @@ function Home() {
             <Route path={"/"} element={<Banner />} />
             <Route path={"/home"} element={<Banner />} />
             <Route exact path='/products' element={<GalleryProduct isLoadingCategories={isLoadingCategories} arrCategory={arrCategory} setCategory={setCategory} isLoadingFeatureProduct={isLoadingFeatureProduct} featuredProducts={arrProducts} setProduct={setProduct}/>} />
+            <Route exact path='/products/:categoryName' element={<GalleryProduct isLoadingCategories={isLoadingCategories} arrCategory={arrCategory} setCategory={setCategory} isLoadingFeatureProduct={isLoadingFeatureProduct} featuredProducts={arrProducts} setProduct={setProduct}/>} />
             <Route exact path='/search' element={<SearchProduct />} />
             <Route exact path='/cart' element={<ShoppingCart />} />
             <Route exact path='/checkout' element={<Checkout />} />

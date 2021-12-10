@@ -1,8 +1,7 @@
 import "./Product.css"
 
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom"
-import Pagination from '../pagnation/Pagination'
 import EcommerceContext from "../../state/Context";
 
 export default function Product({featuredProducts}) {
@@ -62,7 +61,6 @@ export default function Product({featuredProducts}) {
                 </li>                    
             )}
             </ul>
-            <Pagination />
         </div>
         )
 }

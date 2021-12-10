@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { useParams } from "react-router-dom";
 import "./Category.css"
 import styled from '@emotion/styled'
 
@@ -27,10 +28,11 @@ const Selected = styled.div`
     padding-right: 8px;
     background-color: #5599bb;
 `;
+let isFilteredByUrl = false;
 
 export default function Category({isLoadingCategories, arrCategory, setCategory, isLoadingFeatureProduct, featuredProducts, setProduct}) {
+    const params = useParams()
     const [productCategories, setProductCategories] = useState([])
-
     const fillCategories = () => {
         let arrCategories = []
         productCategories.map((c, i) => {
@@ -76,6 +78,40 @@ export default function Category({isLoadingCategories, arrCategory, setCategory,
             }
             setProduct(featuredProducts)
     }
+    const filterProductsByUrl = (categoryName) => {
+        
+        if (arrCategory.length > 0 &&
+            featuredProducts.results && featuredProducts.results.length > 0) {
+                isFilteredByUrl = true;
+                let arrCategories = fillCategories();
+                for(let i = 0; i < arrCategories.length; i++) {
+                    if(categoryName === arrCategories[i].data.name) {
+                        arrCategories[i].selected = true;
+                    }
+                }
+                setProductCategories(arrCategories);
+                setCategory(arrCategories);
+    
+                categoryName = categoryName.toLowerCase();
+                categoryName = categoryName.replace("á", "a");
+                categoryName = categoryName.replace("é", "e");
+                categoryName = categoryName.replace("í", "i");
+                categoryName = categoryName.replace("ó", "o");
+                categoryName = categoryName.replace("ú", "u");
+                            
+                //turn off all products 
+                featuredProducts.results.map(p => {
+                    p.selected = false;
+                    return null;
+                });   
+                for (let i = 0; i < featuredProducts.results.length; i++) {
+                    if(categoryName === featuredProducts.results[i].data.category.slug) {
+                        featuredProducts.results[i].selected = true;
+                    }
+                }
+            }
+            setProduct(featuredProducts)
+    }
     const handleAddCategory = (category, index) => {
         category.selected = true;
         let arrCategories = fillCategories();
@@ -106,8 +142,12 @@ export default function Category({isLoadingCategories, arrCategory, setCategory,
         if(!isLoadingCategories) {
             setProductCategories(arrCategory) 
         }
-        if(!isLoadingCategories && !isLoadingFeatureProduct) {
-            filterProducts() 
+        if(!isLoadingCategories && !isLoadingFeatureProduct && !isFilteredByUrl && params.categoryName) {
+                filterProductsByUrl(params.categoryName.toString());
+        }
+        if(!isLoadingCategories && !isLoadingFeatureProduct && !params.categoryName) {
+            console.log(params.categoryName)
+            filterProducts();
         }
     })
     return (
