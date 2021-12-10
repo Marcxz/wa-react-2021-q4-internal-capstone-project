@@ -15,7 +15,7 @@ img {
     cursor: pointer;
 }
 
-form {
+.containerSearch {
   width: 75%;
   margin: auto;
   display: block;
